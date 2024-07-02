@@ -1,6 +1,12 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.array-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.array-bar {
+    width: 2px;
+    background-color: #00ff11;
+    display: inline-block;
+    margin: 0 1px;
 }
