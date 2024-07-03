@@ -1,4 +1,6 @@
 export const bubbleSort = (array) => {
+    //create an animation array
+    const animation = []
     if (array.length <= 1) {
         return [0, 0]
     }
@@ -8,8 +10,9 @@ export const bubbleSort = (array) => {
                 let temp = array[j];
                 array[j] = array[j + 1];
                 array[j + 1] = temp;
+                animation.push(array.slice())
             }
         }
     }
-    return array
+    return animation
 }
