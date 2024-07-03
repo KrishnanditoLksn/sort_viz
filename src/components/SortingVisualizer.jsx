@@ -1,9 +1,10 @@
 import {useEffect, useState} from "react";
 import '../App.css'
+import Button from "./ui/Button.jsx";
+import {bubbleSort} from "./utils/SortingAlgos.js";
 
 const SortingVisualizer = () => {
     const [array, setArray] = useState([]);
-
     /*
     Handle a reset array when a component is mounted
      */
@@ -11,10 +12,19 @@ const SortingVisualizer = () => {
         handleResetArray()
     }, []);
 
+    let bubbleSortVisualizer = () => {
+        const anima = bubbleSort(array)
+        for (let i = 0; i < anima.length; i++) {
+            setTimeout(() => {
+                setArray(anima[i])
+            }, i)
+        }
+    }
+
     /*
     when the button is clicked, handleResetArray is called
      */
-    function handleResetArray() {
+    let handleResetArray = () => {
         const newarray = [];
         for (let i = 0; i < 100; i++) {
             newarray.push(randomIntegerFromInterval(100, 1000));
@@ -26,21 +36,29 @@ const SortingVisualizer = () => {
     Return a div with array bars
      */
     return (
-        <div className="array-container">
-            {array.map((value, idx) => (
-                <div className="array-bar" key={idx} style=
-                    {
+        <div className="container">
+            <div className="sort-container">
+                <Button onClick={handleResetArray} text="Generate New Array"></Button>
+                <Button text="Merge Sort"></Button>
+                <Button text="Quick  Sort"></Button>
+                <Button onClick={bubbleSortVisualizer} text="Bubble Sort"></Button>
+            </div>
+            <div className="array-bar-container">
+                {array.map((value, idx) => (
+                    <div className="array-bar" key={idx} style=
                         {
-                            height: `${value}px`
-                        }
-                    }>
-                </div>
-            ))}
+                            {
+                                height: `${value}px`
+                            }
+                        }>
+                    </div>
+                ))}
+            </div>
         </div>
     )
 }
 
-function randomIntegerFromInterval(min, max) {
+let randomIntegerFromInterval = (min, max) => {
     /*
     Return a random Integer between min ,  max
      */
