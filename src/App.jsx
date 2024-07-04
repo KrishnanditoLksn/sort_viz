@@ -1,5 +1,5 @@
 import './App.css'
-import SortingVisualizer from "./components/SortingVisualizer.jsx";
+import {SortingVisualizer} from "./components/SortingVisualizer.jsx";
 
 function App() {
     return (
