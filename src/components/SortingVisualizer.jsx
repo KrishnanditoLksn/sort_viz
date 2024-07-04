@@ -1,9 +1,9 @@
 import {useEffect, useState} from "react";
 import '../App.css'
 import Button from "./ui/Button.jsx";
-import {bubbleSort} from "./utils/SortingAlgos.js";
+import {bubbleSort, insertionSort} from "./utils/SortingAlgos.js";
 
-const SortingVisualizer = () => {
+export const SortingVisualizer = () => {
     const [array, setArray] = useState([]);
     /*
     Handle a reset array when a component is mounted
@@ -12,23 +12,33 @@ const SortingVisualizer = () => {
         handleResetArray()
     }, []);
 
-    let bubbleSortVisualizer = () => {
-        const anima = bubbleSort(array)
-        for (let i = 0; i < anima.length; i++) {
+    const handleBubbleSortVisualizer = () => {
+        const bubbleSortIterator = bubbleSort(array)
+        for (let i = 0; i < bubbleSortIterator.length; i++) {
             setTimeout(() => {
-                setArray(anima[i])
+                setArray(bubbleSortIterator[i])
             }, i)
+        }
+    }
+
+    const handleInsertionSortVisualizer = () => {
+        const insert = insertionSort(array)
+        for (let i = 0; i < insert.length; i++) {
+            setTimeout(() => {
+                setArray(insert[i])
+            }, i * 75)
         }
     }
 
     /*
     when the button is clicked, handleResetArray is called
      */
-    let handleResetArray = () => {
+    const handleResetArray = () => {
         const newarray = [];
-        for (let i = 0; i < 100; i++) {
-            newarray.push(randomIntegerFromInterval(100, 1000));
+        for (let i = 0; i < 25; i++) {
+            newarray.push(randomIntegerFromInterval(1, 1000));
         }
+        alert("Generating New Array.......")
         setArray(newarray)
     }
 
@@ -41,7 +51,8 @@ const SortingVisualizer = () => {
                 <Button onClick={handleResetArray} text="Generate New Array"></Button>
                 <Button text="Merge Sort"></Button>
                 <Button text="Quick  Sort"></Button>
-                <Button onClick={bubbleSortVisualizer} text="Bubble Sort"></Button>
+                <Button onClick={handleInsertionSortVisualizer} text="Insertion Sort"></Button>
+                <Button onClick={handleBubbleSortVisualizer} text="Bubble Sort"></Button>
             </div>
             <div className="array-bar-container">
                 {array.map((value, idx) => (
@@ -58,11 +69,9 @@ const SortingVisualizer = () => {
     )
 }
 
-let randomIntegerFromInterval = (min, max) => {
+const randomIntegerFromInterval = (min, max) => {
     /*
     Return a random Integer between min ,  max
      */
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
-
-export default SortingVisualizer
