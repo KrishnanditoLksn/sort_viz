@@ -1,11 +1,11 @@
-.array-container {
+.container {
     display: flex;
     justify-content: center;
     align-items: flex-start;
 }
 
 .array-bar {
-    width: 2px;
+    width: 5px;
     background-color: #00ff11;
     display: inline-block;
     margin: 0 1px;
