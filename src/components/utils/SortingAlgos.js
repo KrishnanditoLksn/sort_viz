@@ -32,3 +32,16 @@ export const insertionSort = (array) => {
     }
     return animation
 }
+
+export const mergeSort = () =>{
+    
+}
+
+function mergeSortHelper(){
+
+}
+
+
+function merge(arr , p , q , r){
+    let l = q- p + 1
+}

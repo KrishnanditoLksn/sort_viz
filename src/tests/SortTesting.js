@@ -13,6 +13,10 @@ export function areArrayEquals(arr, arr2) {
     return false
 }
 
+export function a(){
+    
+}
+
 console.log(nano.microseconds())
 let arr = [5, 2, 4, 6, 3]
 console.log(insertionSort(arr))

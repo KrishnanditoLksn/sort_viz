@@ -30,6 +30,9 @@ export const SortingVisualizer = () => {
         }
     }
 
+    // const handleMergeSortVisualizer = () =>{
+    //     console.log("test")
+    // }
     /*
     when the button is clicked, handleResetArray is called
      */
@@ -53,6 +56,7 @@ export const SortingVisualizer = () => {
                 <Button text="Quick  Sort"></Button>
                 <Button onClick={handleInsertionSortVisualizer} text="Insertion Sort"></Button>
                 <Button onClick={handleBubbleSortVisualizer} text="Bubble Sort"></Button>
+                <Button text="Merge Sort"></Button>
             </div>
             <div className="array-bar-container">
                 {array.map((value, idx) => (
