@@ -29,10 +29,7 @@ export const SortingVisualizer = () => {
             }, i * 75)
         }
     }
-
-    // const handleMergeSortVisualizer = () =>{
-    //     console.log("test")
-    // }
+    
     /*
     when the button is clicked, handleResetArray is called
      */
